@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<root>
+	<name type="str">Line Danser</name>
+	<age type="int">31</age>
+	<email type="str">line_danser@nhn.no</email>
+	<addresses type="list">
+		<item type="dict">
+			<street type="str">Bergveien 1</street>
+			<city type="str">Oslo</city>
+			<zip_code type="str">4535</zip_code>
+		</item>
+		<item type="dict">
+			<street type="str">Bergveien 2</street>
+			<city type="str">Bergen</city>
+			<zip_code type="str">5643</zip_code>
+		</item>
+	</addresses>
+</root>
