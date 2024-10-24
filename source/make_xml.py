@@ -7,7 +7,12 @@ from module.pydantic_dummydata import get_course
 
 example_course = get_course()
 
-xml = dicttoxml(example_course.model_dump(), custom_root="course", attr_type=True)
+xml = dicttoxml(
+	example_course.model_dump(), 
+	custom_root="course", 
+	attr_type=True,
+	encoding="utf-8",
+	)
 dom = parseString(xml)
 xml_pretty = dom.toprettyxml()
 

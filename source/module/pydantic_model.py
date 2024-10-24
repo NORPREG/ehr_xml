@@ -122,6 +122,67 @@ class PreviousCancer(BaseModel):
 	is_previous_cancer: bool
 	previous_cancer: List[PreviousCancerItem]
 
+class TreatmentRadiotherapy(BaseModel):
+	course_id: str
+	procedure_nkpk_code: str
+	procedure_nkpk_description: str
+	comment: Optional[str] = None
+
+class TreatmentSurgery(BaseModel):
+	procedure_nkpk_code: str
+	procedure_nkpk_description: str
+	surgery_target: Literal[
+		"Primærtumor",
+		"Lokalt residiv og primærtumor",
+		"Metastase"
+	]
+	surgery_date: date
+	comment: Optional[str] = None
+
+class TreatmentSystemic(BaseModel):
+	"""Legemiddel versus MKB?"""
+
+	systemic_name: str # navn på legemiddel / virkestoff / kur
+	category: Literal[
+		"Kjemoterapi",
+		"Immunterapi",
+		"Hormonell behandling",
+		"Målrettet terapi / small molecules"
+	]
+
+	therapeutic_intent: Literal[
+		"Preoperativt",
+		"Postoperativt"
+	]
+
+	total_dosage_value: float
+	total_dosage_unit: str
+	dosage_start_date: date
+	dosage_stop_date: date
+	comment: Optional[str] = None
+
+class TreatmentSummary(BaseModel):
+	treatment_intention: Literal[
+		"Kurativt",
+		"Ikke kurativt (livsforlengende)",
+		"Ikke kurativt (symptomlindrende)",
+		"Ikke kurativt (lokalkontroll)"
+	]
+	treatment_type: Literal[
+		"Neoadjuvant", 
+		"Konkomitant", 
+		"Adjuvant", 
+		"Neoadjuvant + konkomitant", 
+		"Neoadjuvant + adjuvant", 
+		"Konkomitant + adjuvant", 
+		"Neoadjuvant + konkomitant + adjuvant"
+	]
+
+	treatment_radiotherapy: Optional[TreatmentRadiotherapy] = None
+	treatment_systemic: Optional[TreatmentSystemic] = None
+	treatment_surgery: Optional[TreatmentSurgery] = None
+
+
 class Course(BaseModel):
 	metadata: Metadata
 	demographics: Demographics
@@ -135,4 +196,4 @@ class Course(BaseModel):
 	histology: List[Histology]
 	genetics: List[Genetics]
 	previous_cancer: PreviousCancer
-
+	treatment_summary: List[TreatmentSummary]

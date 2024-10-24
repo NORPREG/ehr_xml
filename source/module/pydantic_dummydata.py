@@ -14,6 +14,10 @@ from module.pydantic_model import (
 	Genetics,
 	PreviousCancer,
 	PreviousCancerItem,
+	TreatmentSummary,
+	TreatmentRadiotherapy,
+	TreatmentSurgery,
+	TreatmentSystemic,
 	Course
 )
 
@@ -142,6 +146,43 @@ def get_course():
 		]
 	)
 
+	treatment_summary_data = [
+		TreatmentSummary(
+			treatment_intention="Ikke kurativt (lokalkontroll)",
+			treatment_type="Konkomitant",
+			treatment_radiotherapy=TreatmentRadiotherapy(
+				course_id="123456",
+				procedure_nkpk_code="WEOA00",
+				procedure_nkpk_description="Ekstern stråleterapi, høyenergetisk (MV)"
+			)
+		),
+		# This list fails!!!
+		TreatmentSummary(
+			treatment_intention="Kurativt",
+			treatment_type="Konkomitant",
+			treatment_surgery=TreatmentSurgery(
+				surgery_target="Primærtumor",
+				surgery_date=date(2023,7,24),
+				procedure_nkpk_code="CBD11",
+				procedure_nkpk_description="Åpning av lapp etter rekonstruksjon av øyelokk"
+			)
+		),
+		TreatmentSummary(
+			treatment_intention="Kurativt",
+			treatment_type="Adjuvant",
+			treatment_surgery=TreatmentSystemic(
+				systemic_name="vorasidenib",
+				category="Immunterapi",
+				therapeutic_intent="Preoperativt",
+				total_dosage_value=12,
+				total_dosage_unit="l",
+				dosage_start_date=date(2023,4,10),
+				dosage_stop_date=date(2023,4,20),
+				comment="Fikk litt i overkant mye"
+			)
+		)
+	]
+
 	course_data = Course(
 		metadata=metadata_data,
 		demographics=demographics_data,
@@ -155,7 +196,7 @@ def get_course():
 		histology=histology_data,
 		genetics=genetics_data,
 		previous_cancer=previous_cancer_data,
-
+		treatment_summary=treatment_summary_data,
 	)
 
 	return course_data
