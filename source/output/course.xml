@@ -1,0 +1,134 @@
+<?xml version="1.0" ?>
+<course>
+	<metadata type="dict">
+		<xml_timestamp type="str">2024-10-24T11:00:54.685839</xml_timestamp>
+		<version_major type="int">0</version_major>
+		<version_minor type="int">1</version_minor>
+	</metadata>
+	<demographics type="dict">
+		<rt_center type="str">Haukeland universitetssykehus</rt_center>
+		<referring_hf type="str">Voss sjukehus</referring_hf>
+		<birth_year type="int">1956</birth_year>
+		<sex type="str">mann</sex>
+		<weight_at_diagnosis_kg type="float">76.0</weight_at_diagnosis_kg>
+		<height_cm type="float">175.0</height_cm>
+		<patient_id_fnr type="str">01015625103</patient_id_fnr>
+	</demographics>
+	<social type="dict">
+		<education_level type="str">Videregående</education_level>
+		<martial_status type="str">Skilt</martial_status>
+		<living_arrangements type="str">Ikke i parforhold</living_arrangements>
+	</social>
+	<stimulantia type="dict">
+		<smoking_status type="str">Aldri røykt</smoking_status>
+		<pack_years type="int">0</pack_years>
+		<month_since_stopping type="null"/>
+		<non_smoking_tobacco_status type="str">Aldri brukt</non_smoking_tobacco_status>
+		<alcohol_abuse type="str">Aldri drukket</alcohol_abuse>
+	</stimulantia>
+	<function_status type="dict">
+		<ecog_grade type="int">3</ecog_grade>
+		<ecog_date type="str">2014-03-12</ecog_date>
+	</function_status>
+	<comorbidity type="list">
+		<item type="dict">
+			<comorbidity_icd10_code type="str">S86.9</comorbidity_icd10_code>
+			<comorbidity_icd10_description type="str">Skade på uspesifisert muskel eller sene i legg</comorbidity_icd10_description>
+			<comorbidity_category type="null"/>
+			<comorbidity_comment type="null"/>
+			<comorbidity_date type="str">2018-02-20</comorbidity_date>
+		</item>
+		<item type="dict">
+			<comorbidity_icd10_code type="null"/>
+			<comorbidity_icd10_description type="null"/>
+			<comorbidity_category type="str">Sykdommer i muskel-skjelettsystemet og bindevev</comorbidity_category>
+			<comorbidity_comment type="null"/>
+			<comorbidity_date type="str">2020-04-21</comorbidity_date>
+		</item>
+	</comorbidity>
+	<primary_diagnosis type="dict">
+		<diagnosis_icd10_code type="str">C78.4</diagnosis_icd10_code>
+		<diagnosis_icd10_description type="str">Metastase i tynntarm</diagnosis_icd10_description>
+		<diagnosis_laterality type="null"/>
+		<diagnosis_localisation type="str">Proksimalt</diagnosis_localisation>
+		<diagnosis_date type="str">2023-10-02</diagnosis_date>
+		<diagnosis_method type="str">Histologisk</diagnosis_method>
+		<diagnosis_comment type="null"/>
+	</primary_diagnosis>
+	<staging type="list">
+		<item type="dict">
+			<tnm_t type="str">T4a</tnm_t>
+			<tnm_n type="str">N0</tnm_n>
+			<tnm_m type="str">M0</tnm_m>
+			<tnm_version type="str">AJCC 8</tnm_version>
+			<tnm_type type="str">Clinical</tnm_type>
+			<other_type type="null"/>
+			<other_grade type="null"/>
+			<is_relapse type="bool">false</is_relapse>
+			<staging_date type="str">2024-06-10</staging_date>
+		</item>
+		<item type="dict">
+			<tnm_t type="str">T4a</tnm_t>
+			<tnm_n type="str">N1</tnm_n>
+			<tnm_m type="str">M0</tnm_m>
+			<tnm_version type="str">AJCC 8</tnm_version>
+			<tnm_type type="str">Pathological</tnm_type>
+			<other_type type="null"/>
+			<other_grade type="null"/>
+			<is_relapse type="bool">false</is_relapse>
+			<staging_date type="str">2024-07-10</staging_date>
+		</item>
+	</staging>
+	<metastasis type="dict">
+		<metastasis_diagnosed type="bool">true</metastasis_diagnosed>
+		<metastasis_localisation type="str">Upper GI</metastasis_localisation>
+	</metastasis>
+	<histology type="list">
+		<item type="dict">
+			<histological_celltype_code type="str">M74204</histological_celltype_code>
+			<histological_celltype_description type="str">mikroglandulær adenose</histological_celltype_description>
+			<topographical_mapping_code type="str">T51140</topographical_mapping_code>
+			<topographical_mapping_description type="str">ganeslimhinne</topographical_mapping_description>
+		</item>
+		<item type="dict">
+			<histological_celltype_code type="str">M76120</histological_celltype_code>
+			<histological_celltype_description type="str">Dupuytrens kontraktur</histological_celltype_description>
+			<topographical_mapping_code type="str">T54920</topographical_mapping_code>
+			<topographical_mapping_description type="str">gingiva i overkjeve</topographical_mapping_description>
+		</item>
+	</histology>
+	<genetics type="list">
+		<item type="dict">
+			<amino_acid_changes type="str">SLC25A44</amino_acid_changes>
+		</item>
+		<item type="dict">
+			<amino_acid_changes type="str">ALDH4A1</amino_acid_changes>
+		</item>
+		<item type="dict">
+			<amino_acid_changes type="str">5,10-meTHF</amino_acid_changes>
+		</item>
+	</genetics>
+	<previous_cancer type="dict">
+		<is_previous_cancer type="bool">true</is_previous_cancer>
+		<previous_cancer type="list">
+			<item type="dict">
+				<previous_cancer_icd10_code type="str">C71.7</previous_cancer_icd10_code>
+				<previous_cancer_icd10_description type="str">Ondartet svulst i hjernestamme</previous_cancer_icd10_description>
+				<previous_cancer_laterality type="null"/>
+				<previous_cancer_localisation type="null"/>
+				<previous_cancer_diagnosis_year type="int">1977</previous_cancer_diagnosis_year>
+				<previous_cancer_rt_given type="bool">true</previous_cancer_rt_given>
+				<previous_cancer_comment type="null"/>
+			</item>
+			<item type="dict">
+				<previous_cancer_icd10_code type="str">C77.50</previous_cancer_icd10_code>
+				<previous_cancer_icd10_description type="str">Mikrometastase i lymfeknute i bekken</previous_cancer_icd10_description>
+				<previous_cancer_laterality type="null"/>
+				<previous_cancer_localisation type="null"/>
+				<previous_cancer_diagnosis_year type="int">1989</previous_cancer_diagnosis_year>
+				<previous_cancer_rt_given type="bool">false</previous_cancer_rt_given>
+				<previous_cancer_comment type="null"/>
+			</item>
+		</previous_cancer>
+	</previous_cancer>
+</course>

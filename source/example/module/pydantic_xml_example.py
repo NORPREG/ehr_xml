@@ -34,6 +34,7 @@ example_user = User(
 	addresses = [example_address_1, example_address_2]
 )
 
+
 xml = dicttoxml(example_user.model_dump(), custom_root="root", attr_type=True)
 dom = parseString(xml)
 xml_pretty = dom.toprettyxml()
