@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema targetNamespace="register" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="course">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="metadata">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="xml_timestamp" type="xs:dateTime" />
+							<xs:element name="xml_version_major" type="xs:unsignedByte" />
+							<xs:element name="xml_version_minor" type="xs:unsignedByte" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="demographics">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="rt_center" type="xs:string" />
+							<xs:element name="referring_hf" type="xs:string" />
+							<xs:element name="birth_year" type="xs:unsignedShort" />
+							<xs:element name="sex" type="xs:string" />
+							<xs:element name="weight_at_diagnosis_kg" type="xs:decimal" />
+							<xs:element name="height_cm" type="xs:decimal" />
+							<xs:element name="patient_id_fnr" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="social">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="education_level" type="xs:string" />
+							<xs:element name="martial_status" type="xs:string" />
+							<xs:element name="living_arrangements" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="stimulantia">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="smoking_status" type="xs:string" />
+							<xs:element name="pack_years" type="xs:unsignedByte" />
+							<xs:element name="month_since_stopping" />
+							<xs:element name="non_smoking_tobacco_status" type="xs:string" />
+							<xs:element name="alcohol_abuse" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="function_status">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ecog_grade" type="xs:unsignedByte" />
+							<xs:element name="ecog_date" type="xs:date" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="comorbidity">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="comorbidity_icd10_code" type="xs:string" />
+										<xs:element name="comorbidity_icd10_description" type="xs:string" />
+										<xs:element name="comorbidity_category" type="xs:string" />
+										<xs:element name="comorbidity_comment" />
+										<xs:element name="comorbidity_date" type="xs:date" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="primary_diagnosis">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="diagnosis_icd10_code" type="xs:string" />
+							<xs:element name="diagnosis_icd10_description" type="xs:string" />
+							<xs:element name="diagnosis_laterality" />
+							<xs:element name="diagnosis_localisation" type="xs:string" />
+							<xs:element name="diagnosis_date" type="xs:date" />
+							<xs:element name="diagnosis_method" type="xs:string" />
+							<xs:element name="diagnosis_comment" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="staging">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="tnm_t" type="xs:string" />
+										<xs:element name="tnm_n" type="xs:string" />
+										<xs:element name="tnm_m" type="xs:string" />
+										<xs:element name="tnm_version" type="xs:string" />
+										<xs:element name="tnm_type" type="xs:string" />
+										<xs:element name="other_type" />
+										<xs:element name="other_grade" />
+										<xs:element name="is_relapse" type="xs:boolean" />
+										<xs:element name="staging_date" type="xs:date" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="metastasis">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="metastasis_diagnosed" type="xs:boolean" />
+							<xs:element name="metastasis_localisation" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="histology">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="histological_celltype_code" type="xs:string" />
+										<xs:element name="histological_celltype_description" type="xs:string" />
+										<xs:element name="topographical_mapping_code" type="xs:string" />
+										<xs:element name="topographical_mapping_description" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="genetics">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="amino_acid_changes" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="previous_cancer">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="is_previous_cancer" type="xs:boolean" />
+							<xs:element name="previous_cancer">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" name="item">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="previous_cancer_icd10_code" type="xs:string" />
+													<xs:element name="previous_cancer_icd10_description" type="xs:string" />
+													<xs:element name="previous_cancer_laterality" />
+													<xs:element name="previous_cancer_localisation" />
+													<xs:element name="previous_cancer_diagnosis_year" type="xs:unsignedShort" />
+													<xs:element name="previous_cancer_rt_given" type="xs:boolean" />
+													<xs:element name="previous_cancer_comment" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="treatment_summary">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="treatment_intention" type="xs:string" />
+										<xs:element name="treatment_type" type="xs:string" />
+										<xs:element name="treatment_radiotherapy">
+											<xs:complexType>
+												<xs:sequence minOccurs="0">
+													<xs:element name="course_id" type="xs:unsignedInt" />
+													<xs:element name="procedure_nkpk_code" type="xs:string" />
+													<xs:element name="procedure_nkpk_description" type="xs:string" />
+													<xs:element name="comment" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="treatment_systemic">
+											<xs:complexType>
+												<xs:sequence minOccurs="0">
+													<xs:element name="systemic_name" type="xs:string" />
+													<xs:element name="category" type="xs:string" />
+													<xs:element name="therapeutic_intent" type="xs:string" />
+													<xs:element name="total_dosage_value" type="xs:decimal" />
+													<xs:element name="total_dosage_unit" type="xs:string" />
+													<xs:element name="dosage_start_date" type="xs:date" />
+													<xs:element name="dosage_stop_date" type="xs:date" />
+													<xs:element name="comment" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="treatment_surgery">
+											<xs:complexType>
+												<xs:sequence minOccurs="0">
+													<xs:element name="procedure_nkpk_code" type="xs:string" />
+													<xs:element name="procedure_nkpk_description" type="xs:string" />
+													<xs:element name="surgery_target" type="xs:string" />
+													<xs:element name="surgery_date" type="xs:date" />
+													<xs:element name="comment" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="biological_sample">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="requisition_remissenr" type="xs:string" />
+										<xs:element name="sample_laboratory" type="xs:string" />
+										<xs:element name="conclusion" type="xs:string" />
+										<xs:element name="sample_date" type="xs:date" />
+										<xs:element name="sample_type" type="xs:string" />
+										<xs:element name="sample_anatomical_location" type="xs:string" />
+										<xs:element name="sample_tumorcells_percentage" type="xs:string" />
+										<xs:element name="sample_comment" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="biomarker">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="biomarker_name" type="xs:string" />
+										<xs:element name="biomarker_value" type="xs:string" />
+										<xs:element name="biomarker_unit" type="xs:string" />
+										<xs:element name="biomarker_result" type="xs:string" />
+										<xs:element name="biomarker_method" type="xs:string" />
+										<xs:element name="comment" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ctcae">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ctcae_date" type="xs:date" />
+										<xs:element name="meddra_category" type="xs:string" />
+										<xs:element name="meddra_name" type="xs:string" />
+										<xs:element name="ctcae_grade" type="xs:unsignedByte" />
+										<xs:element name="ctcae_terminology_version" type="xs:unsignedByte" />
+										<xs:element name="meddra_terminology_version" type="xs:decimal" />
+										<xs:element name="comment" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="vital_status">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="last_followup" type="xs:date" />
+							<xs:element name="mors_date" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="tumor_event">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="progression_date" type="xs:date" />
+										<xs:element name="progression_type" type="xs:string" />
+										<xs:element name="progression_identification" type="xs:string" />
+										<xs:element name="progression_grade" type="xs:string" />
+										<xs:element name="comment" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="consent">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="informed_patient_about_rt_registry" type="xs:boolean" />
+							<xs:element name="informed_patient_about_broad_consent" type="xs:boolean" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="clinical_studies">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="study_name" type="xs:string" />
+										<xs:element name="study_contact_person" type="xs:string" />
+										<xs:element name="comment" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

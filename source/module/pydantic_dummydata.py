@@ -18,6 +18,13 @@ from module.pydantic_model import (
 	TreatmentRadiotherapy,
 	TreatmentSurgery,
 	TreatmentSystemic,
+	BiologicalSample,
+	Biomarker,
+	CTCAE,
+	VitalStatus,
+	TumorEvent,
+	Consent,
+	ClinicalStudy,
 	Course
 )
 
@@ -156,7 +163,6 @@ def get_course():
 				procedure_nkpk_description="Ekstern stråleterapi, høyenergetisk (MV)"
 			)
 		),
-		# This list fails!!!
 		TreatmentSummary(
 			treatment_intention="Kurativt",
 			treatment_type="Konkomitant",
@@ -170,7 +176,7 @@ def get_course():
 		TreatmentSummary(
 			treatment_intention="Kurativt",
 			treatment_type="Adjuvant",
-			treatment_surgery=TreatmentSystemic(
+			treatment_systemic=TreatmentSystemic(
 				systemic_name="vorasidenib",
 				category="Immunterapi",
 				therapeutic_intent="Preoperativt",
@@ -180,6 +186,112 @@ def get_course():
 				dosage_stop_date=date(2023,4,20),
 				comment="Fikk litt i overkant mye"
 			)
+		)
+	]
+
+	biological_sample_data = [
+		BiologicalSample(
+			requisition_remissenr="12654f2",
+			sample_laboratory="Haukeland universitetssykehus",
+			conclusion="Ingen bukspyttkjertel funnet",
+			sample_date=date(2010,1,1),
+			sample_type="Vev",
+			sample_anatomical_location="Bukspyttkjertel",
+			sample_comment="Fra fryser"
+		),
+		BiologicalSample(
+			requisition_remissenr="5234536",
+			sample_laboratory="Oslo universitetssykehus, Aker",
+			sample_date=date(2024,1,1),
+			conclusion="Positive prøver",
+			sample_type="Celler (cytologi)",
+			sample_anatomical_location="Bukspyttkjertel",
+			sample_comment="Tatt nå",
+			sample_tumorcells_percentage=57.8
+		)
+	]
+
+	biomarker_data = [
+		Biomarker(
+			biomarker_name="PSA",
+			biomarker_value=127
+		),
+		Biomarker(
+			biomarker_name="P16",
+			biomarker_result="Positiv"
+		),
+		Biomarker(
+			biomarker_name="ENE mikroskopisk",
+			biomarker_result="Positiv",
+			biomarker_value=75,
+			biomarker_unit="ml/mg"
+		),
+		Biomarker(
+			biomarker_name="Invasjonsdyp",
+			biomarker_method="Målt invasjonsdyp",
+			biomarker_value=2,
+			biomarker_unit="mm"
+		)
+	]
+
+	ctcae_data = [
+		CTCAE(
+			ctcae_date=date(2020,12,1),
+			meddra_name="Atrial fibrillation",
+			ctcae_grade=3,
+			ctcae_terminology_version="5",
+			meddra_terminology_version="27.1"
+		),
+		CTCAE(
+			ctcae_date=date(2024,12,1),
+			meddra_name="Retinal detachment",
+			ctcae_grade=5,
+			ctcae_terminology_version="5",
+			meddra_terminology_version="27.1"
+		),
+		CTCAE(
+			ctcae_date=date(2024,12,1),
+			meddra_category="Endocrine disorders",
+			ctcae_grade=2,
+			ctcae_terminology_version="4",
+			meddra_terminology_version="27.1"
+		),
+	]
+
+	vital_status_data = VitalStatus(
+		last_followup=date(2023,1,5)
+	)
+
+	tumor_event_data = [
+		TumorEvent(
+			progression_date=date(2022,4,6),
+			progression_type="Residiv",
+			progression_identification="Klinikk",
+			progression_grade="Fjernmetastase",
+			comment="Samme genetikk"
+		),
+		TumorEvent(
+			progression_date=date(2023,2,6),
+			progression_type="Progresjon",
+			progression_identification="Histologi",
+			progression_grade="Regional progresjon"		
+		),
+	]
+
+	consent_data = Consent(
+		informed_patient_about_broad_consent=False,
+		informed_patient_about_rt_registry=True
+	)
+
+	clinical_studies_data = [
+		ClinicalStudy(
+			study_name="Dahanca30 (hode-halskreft)",
+			study_contact_person="testlege 1",
+		),
+		ClinicalStudy(
+			study_name="STDHOD9 PET/CT-veiledet strålebehandling ved hode-halskreft",
+			study_contact_person="testlege 2",
+			comment="Ønsker å bli med i PET/CT-armen"
 		)
 	]
 
@@ -197,6 +309,14 @@ def get_course():
 		genetics=genetics_data,
 		previous_cancer=previous_cancer_data,
 		treatment_summary=treatment_summary_data,
+		biological_sample=biological_sample_data,
+		biomarker=biomarker_data,
+		ctcae=ctcae_data,
+		vital_status=vital_status_data,
+		tumor_event=tumor_event_data,
+		consent=consent_data,
+		clinical_studies=clinical_studies_data
+
 	)
 
 	return course_data

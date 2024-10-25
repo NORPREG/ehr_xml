@@ -4,8 +4,8 @@ from datetime import date, datetime
 
 class Metadata(BaseModel):
 	xml_timestamp: datetime
-	version_major: int = 0
-	version_minor: int = 1
+	xml_version_major: int = 0
+	xml_version_minor: int = 3
 
 class Demographics(BaseModel):
 	rt_center: str
@@ -182,18 +182,85 @@ class TreatmentSummary(BaseModel):
 	treatment_systemic: Optional[TreatmentSystemic] = None
 	treatment_surgery: Optional[TreatmentSurgery] = None
 
+class BiologicalSample(BaseModel):
+	requisition_remissenr: str
+	sample_laboratory: Optional[str] = None
+	conclusion: str
+	sample_date: date
+	sample_type: Optional[Literal["Celler (cytologi)", "Vev", "Annet materiale"]] = None
+	sample_anatomical_location: Optional[str] = None
+	sample_tumorcells_percentage: Optional[float] = None
+	sample_comment: Optional[str] = None
+
+class Biomarker(BaseModel):
+	biomarker_name: str
+	# biomarker_type: Literal["Diagnose", "Prognose", "Prediksjon"]
+	biomarker_value: Optional[float] = None
+	biomarker_unit: Optional[str] = None
+	biomarker_result: Optional[Literal["Positiv", "Negativ", "Ikke undersøkt"]] = None
+	biomarker_method: Optional[str] = None
+	comment: Optional[str] = None
+
+class CTCAE(BaseModel):
+	ctcae_date: date
+	meddra_category: Optional[str] = None
+	meddra_name: Optional[str] = None
+	ctcae_grade: Literal[0,1,2,3,4,5]
+	ctcae_terminology_version: Optional[str] = None
+	meddra_terminology_version: Optional[str] = None
+	comment: Optional[str] = None
+
+class VitalStatus(BaseModel):
+	last_followup: Optional[date] = None # siste polikliniske kontakt
+	mors_date: Optional[date] = None
+
+class TumorEvent(BaseModel):
+	progression_date: date
+	progression_type: Literal["Progresjon", "Residiv"]
+	progression_identification: Optional[
+		Literal[
+			"Histologi",
+			"Radiologi",
+			"Klinikk",
+			"Biokjemisk",
+			"Ukjent"
+		]
+	]
+	progression_grade: Literal[
+		"Lokal progresjon",
+		"Regional progresjon",
+		"Fjernmetastase"
+	]
+	comment: Optional[str] = None
+	
+class Consent(BaseModel):
+	informed_patient_about_rt_registry: bool
+	informed_patient_about_broad_consent: bool
+
+class ClinicalStudy(BaseModel):
+	study_name: str
+	study_contact_person: Optional[str] = None
+	comment: Optional[str] = None
+
 
 class Course(BaseModel):
 	metadata: Metadata
-	demographics: Demographics
-	social: Social
-	stimulantia: Stimulantia
-	function_status: FunctionStatus
-	comorbidity: List[Comorbidity]
-	primary_diagnosis: PrimaryDiagnosis
-	staging: List[Staging]
-	metastasis: Metastasis
-	histology: List[Histology]
-	genetics: List[Genetics]
-	previous_cancer: PreviousCancer
-	treatment_summary: List[TreatmentSummary]
+	demographics: Optional[Demographics] = None
+	social: Optional[Social] = None
+	stimulantia: Optional[Stimulantia] = None
+	function_status: Optional[FunctionStatus] = None
+	comorbidity: Optional[List[Comorbidity]] = None
+	primary_diagnosis: Optional[PrimaryDiagnosis] = None
+	staging: Optional[List[Staging]] = None
+	metastasis: Optional[Metastasis] = None
+	histology: Optional[List[Histology]] = None
+	genetics: Optional[List[Genetics]] = None
+	previous_cancer: Optional[PreviousCancer] = None
+	treatment_summary: Optional[List[TreatmentSummary]] = None
+	biological_sample: Optional[List[BiologicalSample]] = None
+	biomarker: Optional[List[Biomarker]] = None
+	ctcae: Optional[List[CTCAE]] = None
+	vital_status: Optional[VitalStatus] = None
+	tumor_event: Optional[List[TumorEvent]] = None
+	consent: Optional[Consent] = None
+	clinical_studies: Optional[List[ClinicalStudy]] = None
