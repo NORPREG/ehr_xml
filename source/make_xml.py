@@ -4,8 +4,10 @@ from dicttoxml import dicttoxml
 from xmler import dict2xml
 from xml.dom.minidom import parseString
 from json import loads
-
+import json 
+from typing_extensions import Annotated
 from module.pydantic_dummydata import get_course
+from module.pydantic_model import Course
 
 example_course = get_course()
 
@@ -29,3 +31,9 @@ xml_pretty.replace(
 
 with open("output/register.xml", "w") as out:
 	out.write(xml_pretty)
+
+
+main_model_schema = Course.model_json_schema()
+
+with open("output/register.schema.json", "w") as out: 
+    out.write(json.dumps(main_model_schema, indent=2))

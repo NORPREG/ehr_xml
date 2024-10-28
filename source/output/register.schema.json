@@ -1,0 +1,1427 @@
+{
+  "$defs": {
+    "BiologicalSample": {
+      "properties": {
+        "requisition_remissenr": {
+          "title": "Requisition Remissenr",
+          "type": "string"
+        },
+        "sample_laboratory": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sample Laboratory"
+        },
+        "conclusion": {
+          "title": "Conclusion",
+          "type": "string"
+        },
+        "sample_date": {
+          "format": "date",
+          "title": "Sample Date",
+          "type": "string"
+        },
+        "sample_type": {
+          "anyOf": [
+            {
+              "enum": [
+                "Celler (cytologi)",
+                "Vev",
+                "Annet materiale"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sample Type"
+        },
+        "sample_anatomical_location": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sample Anatomical Location"
+        },
+        "sample_tumorcells_percentage": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sample Tumorcells Percentage"
+        },
+        "sample_comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sample Comment"
+        }
+      },
+      "required": [
+        "requisition_remissenr",
+        "conclusion",
+        "sample_date"
+      ],
+      "title": "BiologicalSample",
+      "type": "object"
+    },
+    "Biomarker": {
+      "properties": {
+        "biomarker_name": {
+          "title": "Biomarker Name",
+          "type": "string"
+        },
+        "biomarker_value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Biomarker Value"
+        },
+        "biomarker_unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Biomarker Unit"
+        },
+        "biomarker_result": {
+          "anyOf": [
+            {
+              "enum": [
+                "Positiv",
+                "Negativ",
+                "Ikke unders\u00f8kt"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Biomarker Result"
+        },
+        "biomarker_method": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Biomarker Method"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comment"
+        }
+      },
+      "required": [
+        "biomarker_name"
+      ],
+      "title": "Biomarker",
+      "type": "object"
+    },
+    "CTCAE": {
+      "properties": {
+        "ctcae_date": {
+          "format": "date",
+          "title": "Ctcae Date",
+          "type": "string"
+        },
+        "meddra_category": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Meddra Category"
+        },
+        "meddra_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Meddra Name"
+        },
+        "ctcae_grade": {
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "title": "Ctcae Grade",
+          "type": "integer"
+        },
+        "ctcae_terminology_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ctcae Terminology Version"
+        },
+        "meddra_terminology_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Meddra Terminology Version"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comment"
+        }
+      },
+      "required": [
+        "ctcae_date",
+        "ctcae_grade"
+      ],
+      "title": "CTCAE",
+      "type": "object"
+    },
+    "ClinicalStudy": {
+      "properties": {
+        "study_name": {
+          "title": "Study Name",
+          "type": "string"
+        },
+        "study_contact_person": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Study Contact Person"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comment"
+        }
+      },
+      "required": [
+        "study_name"
+      ],
+      "title": "ClinicalStudy",
+      "type": "object"
+    },
+    "Comorbidity": {
+      "properties": {
+        "comorbidity_icd10_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comorbidity Icd10 Code"
+        },
+        "comorbidity_icd10_description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comorbidity Icd10 Description"
+        },
+        "comorbidity_category": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comorbidity Category"
+        },
+        "comorbidity_comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comorbidity Comment"
+        },
+        "comorbidity_date": {
+          "format": "date",
+          "title": "Comorbidity Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "comorbidity_date"
+      ],
+      "title": "Comorbidity",
+      "type": "object"
+    },
+    "Consent": {
+      "properties": {
+        "informed_patient_about_rt_registry": {
+          "title": "Informed Patient About Rt Registry",
+          "type": "boolean"
+        },
+        "informed_patient_about_broad_consent": {
+          "title": "Informed Patient About Broad Consent",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "informed_patient_about_rt_registry",
+        "informed_patient_about_broad_consent"
+      ],
+      "title": "Consent",
+      "type": "object"
+    },
+    "Demographics": {
+      "properties": {
+        "rt_center": {
+          "title": "Rt Center",
+          "type": "string"
+        },
+        "referring_hf": {
+          "title": "Referring Hf",
+          "type": "string"
+        },
+        "birth_year": {
+          "title": "Birth Year",
+          "type": "integer"
+        },
+        "sex": {
+          "enum": [
+            "mann",
+            "kvinne"
+          ],
+          "title": "Sex",
+          "type": "string"
+        },
+        "weight_at_diagnosis_kg": {
+          "title": "Weight At Diagnosis Kg",
+          "type": "number"
+        },
+        "height_cm": {
+          "title": "Height Cm",
+          "type": "number"
+        },
+        "patient_id_fnr": {
+          "title": "Patient Id Fnr",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rt_center",
+        "referring_hf",
+        "birth_year",
+        "sex",
+        "weight_at_diagnosis_kg",
+        "height_cm",
+        "patient_id_fnr"
+      ],
+      "title": "Demographics",
+      "type": "object"
+    },
+    "FunctionStatus": {
+      "properties": {
+        "ecog_grade": {
+          "enum": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "title": "Ecog Grade",
+          "type": "integer"
+        },
+        "ecog_date": {
+          "format": "date",
+          "title": "Ecog Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ecog_grade",
+        "ecog_date"
+      ],
+      "title": "FunctionStatus",
+      "type": "object"
+    },
+    "Genetics": {
+      "properties": {
+        "amino_acid_changes": {
+          "title": "Amino Acid Changes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "amino_acid_changes"
+      ],
+      "title": "Genetics",
+      "type": "object"
+    },
+    "Histology": {
+      "properties": {
+        "histological_celltype_code": {
+          "title": "Histological Celltype Code",
+          "type": "string"
+        },
+        "histological_celltype_description": {
+          "title": "Histological Celltype Description",
+          "type": "string"
+        },
+        "topographical_mapping_code": {
+          "title": "Topographical Mapping Code",
+          "type": "string"
+        },
+        "topographical_mapping_description": {
+          "title": "Topographical Mapping Description",
+          "type": "string"
+        }
+      },
+      "required": [
+        "histological_celltype_code",
+        "histological_celltype_description",
+        "topographical_mapping_code",
+        "topographical_mapping_description"
+      ],
+      "title": "Histology",
+      "type": "object"
+    },
+    "Metadata": {
+      "properties": {
+        "xml_timestamp": {
+          "format": "date-time",
+          "title": "Xml Timestamp",
+          "type": "string"
+        },
+        "xml_version_major": {
+          "default": 0,
+          "title": "Xml Version Major",
+          "type": "integer"
+        },
+        "xml_version_minor": {
+          "default": 3,
+          "title": "Xml Version Minor",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "xml_timestamp"
+      ],
+      "title": "Metadata",
+      "type": "object"
+    },
+    "Metastasis": {
+      "properties": {
+        "metastasis_diagnosed": {
+          "title": "Metastasis Diagnosed",
+          "type": "boolean"
+        },
+        "metastasis_localisation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Metastasis Localisation"
+        }
+      },
+      "required": [
+        "metastasis_diagnosed",
+        "metastasis_localisation"
+      ],
+      "title": "Metastasis",
+      "type": "object"
+    },
+    "PreviousCancer": {
+      "properties": {
+        "is_previous_cancer": {
+          "title": "Is Previous Cancer",
+          "type": "boolean"
+        },
+        "previous_cancer": {
+          "items": {
+            "$ref": "#/$defs/PreviousCancerItem"
+          },
+          "title": "Previous Cancer",
+          "type": "array"
+        }
+      },
+      "required": [
+        "is_previous_cancer",
+        "previous_cancer"
+      ],
+      "title": "PreviousCancer",
+      "type": "object"
+    },
+    "PreviousCancerItem": {
+      "properties": {
+        "previous_cancer_icd10_code": {
+          "title": "Previous Cancer Icd10 Code",
+          "type": "string"
+        },
+        "previous_cancer_icd10_description": {
+          "title": "Previous Cancer Icd10 Description",
+          "type": "string"
+        },
+        "previous_cancer_laterality": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Previous Cancer Laterality"
+        },
+        "previous_cancer_localisation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Previous Cancer Localisation"
+        },
+        "previous_cancer_diagnosis_year": {
+          "title": "Previous Cancer Diagnosis Year",
+          "type": "integer"
+        },
+        "previous_cancer_rt_given": {
+          "title": "Previous Cancer Rt Given",
+          "type": "boolean"
+        },
+        "previous_cancer_comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Previous Cancer Comment"
+        }
+      },
+      "required": [
+        "previous_cancer_icd10_code",
+        "previous_cancer_icd10_description",
+        "previous_cancer_diagnosis_year",
+        "previous_cancer_rt_given"
+      ],
+      "title": "PreviousCancerItem",
+      "type": "object"
+    },
+    "PrimaryDiagnosis": {
+      "properties": {
+        "diagnosis_icd10_code": {
+          "title": "Diagnosis Icd10 Code",
+          "type": "string"
+        },
+        "diagnosis_icd10_description": {
+          "title": "Diagnosis Icd10 Description",
+          "type": "string"
+        },
+        "diagnosis_laterality": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Diagnosis Laterality"
+        },
+        "diagnosis_localisation": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Diagnosis Localisation"
+        },
+        "diagnosis_date": {
+          "format": "date",
+          "title": "Diagnosis Date",
+          "type": "string"
+        },
+        "diagnosis_method": {
+          "title": "Diagnosis Method",
+          "type": "string"
+        },
+        "diagnosis_comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Diagnosis Comment"
+        }
+      },
+      "required": [
+        "diagnosis_icd10_code",
+        "diagnosis_icd10_description",
+        "diagnosis_date",
+        "diagnosis_method"
+      ],
+      "title": "PrimaryDiagnosis",
+      "type": "object"
+    },
+    "Social": {
+      "properties": {
+        "education_level": {
+          "enum": [
+            "Ingen utdanning",
+            "Grunnskole",
+            "Videreg\u00e5ende",
+            "Universitet / h\u00f8yskole < 4 \u00e5r",
+            "Universitet / h\u00f8yskole >= 4 \u00e5r",
+            "Ukjent"
+          ],
+          "title": "Education Level",
+          "type": "string"
+        },
+        "martial_status": {
+          "enum": [
+            "Ugift",
+            "Gift / Registrert partner",
+            "Enke / enkemann / gjenlevende partner",
+            "Skilt",
+            "Separert",
+            "Ukjent"
+          ],
+          "title": "Martial Status",
+          "type": "string"
+        },
+        "living_arrangements": {
+          "enum": [
+            "Ikke i parforhold",
+            "Samboer/lever i parforhold",
+            "Parforhold, lever ikke sammen / s\u00e6rbo",
+            "Ukjent"
+          ],
+          "title": "Living Arrangements",
+          "type": "string"
+        }
+      },
+      "required": [
+        "education_level",
+        "martial_status",
+        "living_arrangements"
+      ],
+      "title": "Social",
+      "type": "object"
+    },
+    "Staging": {
+      "properties": {
+        "tnm_t": {
+          "title": "Tnm T",
+          "type": "string"
+        },
+        "tnm_n": {
+          "title": "Tnm N",
+          "type": "string"
+        },
+        "tnm_m": {
+          "title": "Tnm M",
+          "type": "string"
+        },
+        "tnm_version": {
+          "title": "Tnm Version",
+          "type": "string"
+        },
+        "tnm_type": {
+          "title": "Tnm Type",
+          "type": "string"
+        },
+        "other_type": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Other Type"
+        },
+        "other_grade": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Other Grade"
+        },
+        "is_relapse": {
+          "title": "Is Relapse",
+          "type": "boolean"
+        },
+        "staging_date": {
+          "format": "date",
+          "title": "Staging Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tnm_t",
+        "tnm_n",
+        "tnm_m",
+        "tnm_version",
+        "tnm_type",
+        "is_relapse",
+        "staging_date"
+      ],
+      "title": "Staging",
+      "type": "object"
+    },
+    "Stimulantia": {
+      "properties": {
+        "smoking_status": {
+          "enum": [
+            "Aldri r\u00f8ykt",
+            "R\u00f8yker",
+            "Tidligere r\u00f8yker"
+          ],
+          "title": "Smoking Status",
+          "type": "string"
+        },
+        "pack_years": {
+          "title": "Pack Years",
+          "type": "integer"
+        },
+        "month_since_stopping": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Month Since Stopping"
+        },
+        "non_smoking_tobacco_status": {
+          "enum": [
+            "Aldri brukt",
+            "N\u00e5v\u00e6rende bruker",
+            "Tidligere bruker"
+          ],
+          "title": "Non Smoking Tobacco Status",
+          "type": "string"
+        },
+        "alcohol_abuse": {
+          "enum": [
+            "Drikker",
+            "Drukket tidligere",
+            "Aldri drukket"
+          ],
+          "title": "Alcohol Abuse",
+          "type": "string"
+        }
+      },
+      "required": [
+        "smoking_status",
+        "pack_years",
+        "non_smoking_tobacco_status",
+        "alcohol_abuse"
+      ],
+      "title": "Stimulantia",
+      "type": "object"
+    },
+    "TreatmentRadiotherapy": {
+      "properties": {
+        "course_id": {
+          "title": "Course Id",
+          "type": "string"
+        },
+        "procedure_nkpk_code": {
+          "title": "Procedure Nkpk Code",
+          "type": "string"
+        },
+        "procedure_nkpk_description": {
+          "title": "Procedure Nkpk Description",
+          "type": "string"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comment"
+        }
+      },
+      "required": [
+        "course_id",
+        "procedure_nkpk_code",
+        "procedure_nkpk_description"
+      ],
+      "title": "TreatmentRadiotherapy",
+      "type": "object"
+    },
+    "TreatmentSummary": {
+      "properties": {
+        "treatment_intention": {
+          "enum": [
+            "Kurativt",
+            "Ikke kurativt (livsforlengende)",
+            "Ikke kurativt (symptomlindrende)",
+            "Ikke kurativt (lokalkontroll)"
+          ],
+          "title": "Treatment Intention",
+          "type": "string"
+        },
+        "treatment_type": {
+          "enum": [
+            "Neoadjuvant",
+            "Konkomitant",
+            "Adjuvant",
+            "Neoadjuvant + konkomitant",
+            "Neoadjuvant + adjuvant",
+            "Konkomitant + adjuvant",
+            "Neoadjuvant + konkomitant + adjuvant"
+          ],
+          "title": "Treatment Type",
+          "type": "string"
+        },
+        "treatment_radiotherapy": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TreatmentRadiotherapy"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "treatment_systemic": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TreatmentSystemic"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "treatment_surgery": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TreatmentSurgery"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "treatment_intention",
+        "treatment_type"
+      ],
+      "title": "TreatmentSummary",
+      "type": "object"
+    },
+    "TreatmentSurgery": {
+      "properties": {
+        "procedure_nkpk_code": {
+          "title": "Procedure Nkpk Code",
+          "type": "string"
+        },
+        "procedure_nkpk_description": {
+          "title": "Procedure Nkpk Description",
+          "type": "string"
+        },
+        "surgery_target": {
+          "enum": [
+            "Prim\u00e6rtumor",
+            "Lokalt residiv og prim\u00e6rtumor",
+            "Metastase"
+          ],
+          "title": "Surgery Target",
+          "type": "string"
+        },
+        "surgery_date": {
+          "format": "date",
+          "title": "Surgery Date",
+          "type": "string"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comment"
+        }
+      },
+      "required": [
+        "procedure_nkpk_code",
+        "procedure_nkpk_description",
+        "surgery_target",
+        "surgery_date"
+      ],
+      "title": "TreatmentSurgery",
+      "type": "object"
+    },
+    "TreatmentSystemic": {
+      "description": "Legemiddel versus MKB?",
+      "properties": {
+        "systemic_name": {
+          "title": "Systemic Name",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "Kjemoterapi",
+            "Immunterapi",
+            "Hormonell behandling",
+            "M\u00e5lrettet terapi / small molecules"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "therapeutic_intent": {
+          "enum": [
+            "Preoperativt",
+            "Postoperativt"
+          ],
+          "title": "Therapeutic Intent",
+          "type": "string"
+        },
+        "total_dosage_value": {
+          "title": "Total Dosage Value",
+          "type": "number"
+        },
+        "total_dosage_unit": {
+          "title": "Total Dosage Unit",
+          "type": "string"
+        },
+        "dosage_start_date": {
+          "format": "date",
+          "title": "Dosage Start Date",
+          "type": "string"
+        },
+        "dosage_stop_date": {
+          "format": "date",
+          "title": "Dosage Stop Date",
+          "type": "string"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comment"
+        }
+      },
+      "required": [
+        "systemic_name",
+        "category",
+        "therapeutic_intent",
+        "total_dosage_value",
+        "total_dosage_unit",
+        "dosage_start_date",
+        "dosage_stop_date"
+      ],
+      "title": "TreatmentSystemic",
+      "type": "object"
+    },
+    "TumorEvent": {
+      "properties": {
+        "progression_date": {
+          "format": "date",
+          "title": "Progression Date",
+          "type": "string"
+        },
+        "progression_type": {
+          "enum": [
+            "Progresjon",
+            "Residiv"
+          ],
+          "title": "Progression Type",
+          "type": "string"
+        },
+        "progression_identification": {
+          "anyOf": [
+            {
+              "enum": [
+                "Histologi",
+                "Radiologi",
+                "Klinikk",
+                "Biokjemisk",
+                "Ukjent"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Progression Identification"
+        },
+        "progression_grade": {
+          "enum": [
+            "Lokal progresjon",
+            "Regional progresjon",
+            "Fjernmetastase"
+          ],
+          "title": "Progression Grade",
+          "type": "string"
+        },
+        "comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comment"
+        }
+      },
+      "required": [
+        "progression_date",
+        "progression_type",
+        "progression_identification",
+        "progression_grade"
+      ],
+      "title": "TumorEvent",
+      "type": "object"
+    },
+    "VitalStatus": {
+      "properties": {
+        "last_followup": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Followup"
+        },
+        "mors_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mors Date"
+        }
+      },
+      "title": "VitalStatus",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "metadata": {
+      "$ref": "#/$defs/Metadata"
+    },
+    "demographics": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Demographics"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "social": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Social"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "stimulantia": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Stimulantia"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "function_status": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/FunctionStatus"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "comorbidity": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/Comorbidity"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Comorbidity"
+    },
+    "primary_diagnosis": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PrimaryDiagnosis"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "staging": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/Staging"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Staging"
+    },
+    "metastasis": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Metastasis"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "histology": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/Histology"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Histology"
+    },
+    "genetics": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/Genetics"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Genetics"
+    },
+    "previous_cancer": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/PreviousCancer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "treatment_summary": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/TreatmentSummary"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Treatment Summary"
+    },
+    "biological_sample": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/BiologicalSample"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Biological Sample"
+    },
+    "biomarker": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/Biomarker"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Biomarker"
+    },
+    "ctcae": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/CTCAE"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Ctcae"
+    },
+    "vital_status": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VitalStatus"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "tumor_event": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/TumorEvent"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tumor Event"
+    },
+    "consent": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Consent"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "clinical_studies": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/ClinicalStudy"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Clinical Studies"
+    }
+  },
+  "required": [
+    "metadata"
+  ],
+  "title": "Course",
+  "type": "object"
+}
