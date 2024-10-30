@@ -57,10 +57,11 @@ class Stimulantia(BaseModel):
 		"Tidligere bruker"
 	]
 	
+	# Evaluation.Alkoholanamnese_v1 @ CKM
 	alcohol_abuse: Literal[
-		"Drikker",
-		"Drukket tidligere",
-		"Aldri drukket"
+		"Nåværende bruker",
+		"TIdligere bruker",
+		"Aldri brukt"
 	]
 
 class FunctionStatus(BaseModel):
