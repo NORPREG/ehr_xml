@@ -67,18 +67,6 @@
           ],
           "default": null,
           "title": "Sample Tumorcells Percentage"
-        },
-        "sample_comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Sample Comment"
         }
       },
       "required": [
@@ -147,18 +135,6 @@
           ],
           "default": null,
           "title": "Biomarker Method"
-        },
-        "comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Comment"
         }
       },
       "required": [
@@ -233,18 +209,6 @@
           ],
           "default": null,
           "title": "Meddra Terminology Version"
-        },
-        "comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Comment"
         }
       },
       "required": [
@@ -271,18 +235,6 @@
           ],
           "default": null,
           "title": "Study Contact Person"
-        },
-        "comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Comment"
         }
       },
       "required": [
@@ -293,7 +245,7 @@
     },
     "Comorbidity": {
       "properties": {
-        "comorbidity_icd10_code": {
+        "comorbidity_name": {
           "anyOf": [
             {
               "type": "string"
@@ -303,9 +255,9 @@
             }
           ],
           "default": null,
-          "title": "Comorbidity Icd10 Code"
+          "title": "Comorbidity Name"
         },
-        "comorbidity_icd10_description": {
+        "comorbidity_code": {
           "anyOf": [
             {
               "type": "string"
@@ -315,7 +267,31 @@
             }
           ],
           "default": null,
-          "title": "Comorbidity Icd10 Description"
+          "title": "Comorbidity Code"
+        },
+        "comorbidity_term": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comorbidity Term"
+        },
+        "comorbidity_terminology_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Comorbidity Terminology Version"
         },
         "comorbidity_category": {
           "anyOf": [
@@ -328,18 +304,6 @@
           ],
           "default": null,
           "title": "Comorbidity Category"
-        },
-        "comorbidity_comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Comorbidity Comment"
         },
         "comorbidity_date": {
           "format": "date",
@@ -597,18 +561,6 @@
         "previous_cancer_rt_given": {
           "title": "Previous Cancer Rt Given",
           "type": "boolean"
-        },
-        "previous_cancer_comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Previous Cancer Comment"
         }
       },
       "required": [
@@ -622,25 +574,25 @@
     },
     "PrimaryDiagnosis": {
       "properties": {
-        "diagnosis_icd10_code": {
-          "title": "Diagnosis Icd10 Code",
+        "diagnosis_name": {
+          "title": "Diagnosis Name",
           "type": "string"
         },
-        "diagnosis_icd10_description": {
-          "title": "Diagnosis Icd10 Description",
+        "diagnosis_code": {
+          "title": "Diagnosis Code",
           "type": "string"
         },
-        "diagnosis_laterality": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Diagnosis Laterality"
+        "diagnosis_term": {
+          "title": "Diagnosis Term",
+          "type": "string"
+        },
+        "diagnosis_edition": {
+          "title": "Diagnosis Edition",
+          "type": "string"
+        },
+        "multiple_primaries": {
+          "title": "Multiple Primaries",
+          "type": "boolean"
         },
         "diagnosis_localisation": {
           "anyOf": [
@@ -662,23 +614,14 @@
         "diagnosis_method": {
           "title": "Diagnosis Method",
           "type": "string"
-        },
-        "diagnosis_comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Diagnosis Comment"
         }
       },
       "required": [
-        "diagnosis_icd10_code",
-        "diagnosis_icd10_description",
+        "diagnosis_name",
+        "diagnosis_code",
+        "diagnosis_term",
+        "diagnosis_edition",
+        "multiple_primaries",
         "diagnosis_date",
         "diagnosis_method"
       ],
@@ -744,11 +687,34 @@
           "title": "Tnm M",
           "type": "string"
         },
-        "tnm_version": {
-          "title": "Tnm Version",
+        "tnm_string": {
+          "title": "Tnm String",
           "type": "string"
         },
+        "tnm_edition": {
+          "title": "Tnm Edition",
+          "type": "string"
+        },
+        "tnm_stage": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tnm Stage"
+        },
         "tnm_type": {
+          "enum": [
+            "C",
+            "P",
+            "U",
+            "yC",
+            "yP"
+          ],
           "title": "Tnm Type",
           "type": "string"
         },
@@ -790,7 +756,8 @@
         "tnm_t",
         "tnm_n",
         "tnm_m",
-        "tnm_version",
+        "tnm_string",
+        "tnm_edition",
         "tnm_type",
         "is_relapse",
         "staging_date"
@@ -836,9 +803,9 @@
         },
         "alcohol_abuse": {
           "enum": [
-            "Drikker",
-            "Drukket tidligere",
-            "Aldri drukket"
+            "N\u00e5v\u00e6rende bruker",
+            "TIdligere bruker",
+            "Aldri brukt"
           ],
           "title": "Alcohol Abuse",
           "type": "string"
@@ -866,18 +833,6 @@
         "procedure_nkpk_description": {
           "title": "Procedure Nkpk Description",
           "type": "string"
-        },
-        "comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Comment"
         }
       },
       "required": [
@@ -977,18 +932,6 @@
           "format": "date",
           "title": "Surgery Date",
           "type": "string"
-        },
-        "comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Comment"
         }
       },
       "required": [
@@ -1042,18 +985,6 @@
           "format": "date",
           "title": "Dosage Stop Date",
           "type": "string"
-        },
-        "comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Comment"
         }
       },
       "required": [
@@ -1109,18 +1040,6 @@
           ],
           "title": "Progression Grade",
           "type": "string"
-        },
-        "comment": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Comment"
         }
       },
       "required": [

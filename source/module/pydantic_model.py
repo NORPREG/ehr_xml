@@ -1,3 +1,4 @@
+from unittest.util import strclass
 from pydantic import BaseModel
 from typing import List, Optional, Literal
 from datetime import date, datetime
@@ -69,33 +70,43 @@ class FunctionStatus(BaseModel):
 	ecog_date: date
 
 class Comorbidity(BaseModel):
-	comorbidity_icd10_code: Optional[str] = None
-	comorbidity_icd10_description: Optional[str] = None
+	comorbidity_name: Optional[str] = None
+	comorbidity_code: Optional[str] = None
+	comorbidity_term: Optional[str] = None
+	comorbidity_terminology_version: Optional[str] = None
+
 	comorbidity_category: Optional[str] = None
-	comorbidity_comment: Optional[str] = None
+#	comorbidity_comment: Optional[str] = None
 	comorbidity_date: date
 
 class PrimaryDiagnosis(BaseModel):
-	diagnosis_icd10_code: str
-	diagnosis_icd10_description: str
-	diagnosis_laterality: Optional[str] = None
+	diagnosis_name: str
+	diagnosis_code: str
+	diagnosis_term: str
+	diagnosis_edition: str
+	multiple_primaries: bool
+	
+#	diagnosis_laterality: Optional[str] = None
 	diagnosis_localisation: Optional[str] = None
 	diagnosis_date: date
 	diagnosis_method: str
-	diagnosis_comment: Optional[str] = None
-
+#	diagnosis_comment: Optional[str] = None
 
 class Staging(BaseModel):
 	tnm_t: str
 	tnm_n: str
 	tnm_m: str
-	tnm_version: str
-	tnm_type: str
+
+	tnm_string: str
+	tnm_edition: str
+	tnm_stage: Optional[str] = None
+	
+	# Brukes U, yC, yP i Norge?
+	tnm_type: Literal["C", "P", "U", "yC", "yP"]
 	other_type: Optional[str] = None
 	other_grade: Optional[str] = None
 	is_relapse: bool
 	staging_date: date
-
 
 class Metastasis(BaseModel):
 	metastasis_diagnosed: bool
@@ -117,7 +128,7 @@ class PreviousCancerItem(BaseModel):
 	previous_cancer_localisation: Optional[str] = None
 	previous_cancer_diagnosis_year: int
 	previous_cancer_rt_given: bool
-	previous_cancer_comment: Optional[str] = None
+#	previous_cancer_comment: Optional[str] = None
 
 class PreviousCancer(BaseModel):
 	is_previous_cancer: bool
@@ -127,7 +138,7 @@ class TreatmentRadiotherapy(BaseModel):
 	course_id: str
 	procedure_nkpk_code: str
 	procedure_nkpk_description: str
-	comment: Optional[str] = None
+#	comment: Optional[str] = None
 
 class TreatmentSurgery(BaseModel):
 	procedure_nkpk_code: str
@@ -138,7 +149,7 @@ class TreatmentSurgery(BaseModel):
 		"Metastase"
 	]
 	surgery_date: date
-	comment: Optional[str] = None
+#	comment: Optional[str] = None
 
 class TreatmentSystemic(BaseModel):
 	"""Legemiddel versus MKB?"""
@@ -160,7 +171,7 @@ class TreatmentSystemic(BaseModel):
 	total_dosage_unit: str
 	dosage_start_date: date
 	dosage_stop_date: date
-	comment: Optional[str] = None
+#	comment: Optional[str] = None
 
 class TreatmentSummary(BaseModel):
 	treatment_intention: Literal[
@@ -191,7 +202,7 @@ class BiologicalSample(BaseModel):
 	sample_type: Optional[Literal["Celler (cytologi)", "Vev", "Annet materiale"]] = None
 	sample_anatomical_location: Optional[str] = None
 	sample_tumorcells_percentage: Optional[float] = None
-	sample_comment: Optional[str] = None
+#	sample_comment: Optional[str] = None
 
 class Biomarker(BaseModel):
 	biomarker_name: str
@@ -200,7 +211,7 @@ class Biomarker(BaseModel):
 	biomarker_unit: Optional[str] = None
 	biomarker_result: Optional[Literal["Positiv", "Negativ", "Ikke undersøkt"]] = None
 	biomarker_method: Optional[str] = None
-	comment: Optional[str] = None
+#	comment: Optional[str] = None
 
 class CTCAE(BaseModel):
 	ctcae_date: date
@@ -209,7 +220,7 @@ class CTCAE(BaseModel):
 	ctcae_grade: Literal[0,1,2,3,4,5]
 	ctcae_terminology_version: Optional[str] = None
 	meddra_terminology_version: Optional[str] = None
-	comment: Optional[str] = None
+#	comment: Optional[str] = None
 
 class VitalStatus(BaseModel):
 	last_followup: Optional[date] = None # siste polikliniske kontakt
@@ -232,7 +243,7 @@ class TumorEvent(BaseModel):
 		"Regional progresjon",
 		"Fjernmetastase"
 	]
-	comment: Optional[str] = None
+#	comment: Optional[str] = None
 	
 class Consent(BaseModel):
 	informed_patient_about_rt_registry: bool
@@ -241,7 +252,7 @@ class Consent(BaseModel):
 class ClinicalStudy(BaseModel):
 	study_name: str
 	study_contact_person: Optional[str] = None
-	comment: Optional[str] = None
+#	comment: Optional[str] = None
 
 
 class Course(BaseModel):

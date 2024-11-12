@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xs:schema targetNamespace="register" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="course">
 		<xs:complexType>
 			<xs:sequence>
@@ -21,7 +21,7 @@
 							<xs:element name="sex" type="xs:string" />
 							<xs:element name="weight_at_diagnosis_kg" type="xs:decimal" />
 							<xs:element name="height_cm" type="xs:decimal" />
-							<xs:element name="patient_id_fnr" type="xs:string" />
+							<xs:element name="patient_id_fnr" type="xs:unsignedInt" />
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -59,10 +59,11 @@
 							<xs:element maxOccurs="unbounded" name="item">
 								<xs:complexType>
 									<xs:sequence>
-										<xs:element name="comorbidity_icd10_code" type="xs:string" />
-										<xs:element name="comorbidity_icd10_description" type="xs:string" />
+										<xs:element name="comorbidity_name" type="xs:string" />
+										<xs:element name="comorbidity_code" type="xs:string" />
+										<xs:element name="comorbidity_term" type="xs:string" />
+										<xs:element name="comorbidity_terminology_version" />
 										<xs:element name="comorbidity_category" type="xs:string" />
-										<xs:element name="comorbidity_comment" />
 										<xs:element name="comorbidity_date" type="xs:date" />
 									</xs:sequence>
 								</xs:complexType>
@@ -73,13 +74,14 @@
 				<xs:element name="primary_diagnosis">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="diagnosis_icd10_code" type="xs:string" />
-							<xs:element name="diagnosis_icd10_description" type="xs:string" />
-							<xs:element name="diagnosis_laterality" />
+							<xs:element name="diagnosis_name" type="xs:string" />
+							<xs:element name="diagnosis_code" type="xs:string" />
+							<xs:element name="diagnosis_term" type="xs:string" />
+							<xs:element name="diagnosis_edition" type="xs:string" />
+							<xs:element name="multiple_primaries" type="xs:boolean" />
 							<xs:element name="diagnosis_localisation" type="xs:string" />
 							<xs:element name="diagnosis_date" type="xs:date" />
 							<xs:element name="diagnosis_method" type="xs:string" />
-							<xs:element name="diagnosis_comment" />
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -92,7 +94,9 @@
 										<xs:element name="tnm_t" type="xs:string" />
 										<xs:element name="tnm_n" type="xs:string" />
 										<xs:element name="tnm_m" type="xs:string" />
-										<xs:element name="tnm_version" type="xs:string" />
+										<xs:element name="tnm_string" type="xs:string" />
+										<xs:element name="tnm_edition" type="xs:string" />
+										<xs:element name="tnm_stage" />
 										<xs:element name="tnm_type" type="xs:string" />
 										<xs:element name="other_type" />
 										<xs:element name="other_grade" />
@@ -157,7 +161,6 @@
 													<xs:element name="previous_cancer_localisation" />
 													<xs:element name="previous_cancer_diagnosis_year" type="xs:unsignedShort" />
 													<xs:element name="previous_cancer_rt_given" type="xs:boolean" />
-													<xs:element name="previous_cancer_comment" />
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -181,7 +184,6 @@
 													<xs:element name="course_id" type="xs:unsignedInt" />
 													<xs:element name="procedure_nkpk_code" type="xs:string" />
 													<xs:element name="procedure_nkpk_description" type="xs:string" />
-													<xs:element name="comment" />
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -195,7 +197,6 @@
 													<xs:element name="total_dosage_unit" type="xs:string" />
 													<xs:element name="dosage_start_date" type="xs:date" />
 													<xs:element name="dosage_stop_date" type="xs:date" />
-													<xs:element name="comment" type="xs:string" />
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -206,7 +207,6 @@
 													<xs:element name="procedure_nkpk_description" type="xs:string" />
 													<xs:element name="surgery_target" type="xs:string" />
 													<xs:element name="surgery_date" type="xs:date" />
-													<xs:element name="comment" />
 												</xs:sequence>
 											</xs:complexType>
 										</xs:element>
@@ -229,7 +229,6 @@
 										<xs:element name="sample_type" type="xs:string" />
 										<xs:element name="sample_anatomical_location" type="xs:string" />
 										<xs:element name="sample_tumorcells_percentage" type="xs:string" />
-										<xs:element name="sample_comment" type="xs:string" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -247,7 +246,6 @@
 										<xs:element name="biomarker_unit" type="xs:string" />
 										<xs:element name="biomarker_result" type="xs:string" />
 										<xs:element name="biomarker_method" type="xs:string" />
-										<xs:element name="comment" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -266,7 +264,6 @@
 										<xs:element name="ctcae_grade" type="xs:unsignedByte" />
 										<xs:element name="ctcae_terminology_version" type="xs:unsignedByte" />
 										<xs:element name="meddra_terminology_version" type="xs:decimal" />
-										<xs:element name="comment" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -291,7 +288,6 @@
 										<xs:element name="progression_type" type="xs:string" />
 										<xs:element name="progression_identification" type="xs:string" />
 										<xs:element name="progression_grade" type="xs:string" />
-										<xs:element name="comment" type="xs:string" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -314,7 +310,6 @@
 									<xs:sequence>
 										<xs:element name="study_name" type="xs:string" />
 										<xs:element name="study_contact_person" type="xs:string" />
-										<xs:element name="comment" type="xs:string" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>

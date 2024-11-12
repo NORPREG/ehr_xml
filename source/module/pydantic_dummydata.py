@@ -54,7 +54,7 @@ def get_course():
 		pack_years=0,
 		month_since_stopping=None,
 		non_smoking_tobacco_status="Aldri brukt",
-		alcohol_abuse="Aldri drukket"
+		alcohol_abuse="TIdligere bruker"
 	)
 
 	function_status_data = FunctionStatus(
@@ -64,8 +64,10 @@ def get_course():
 
 	comorbidity_data = [
 		Comorbidity(
-			comorbidity_icd10_code = "S86.9",
-			comorbidity_icd10_description="Skade på uspesifisert muskel eller sene i legg",
+			comorbidity_code="S86.9",
+			comorbidity_term="Skade på uspesifisert muskel eller sene i legg",
+			comorbidity_name="S86.9 Skade på uspesifisert muskel eller sene i legg",
+			comorbidity_edition="ICD10",
 			comorbidity_date=date(2018, 2, 20)
 		),
 		Comorbidity(
@@ -75,10 +77,13 @@ def get_course():
 	]
 
 	primary_diagnosis_data = PrimaryDiagnosis(
-		diagnosis_icd10_code="C78.4",
-		diagnosis_icd10_description="Metastase i tynntarm",
+		diagnosis_code="C78.4",
+		diagnosis_term="Metastase i tynntarm",
+		diagnosis_name="C78.4 Metastase i tynntarm",
+		diagnosis_edition="ICD10",
 		diagnosis_localisation="Proksimalt",
 		diagnosis_date=date(2023, 10, 2),
+		multiple_primaries=True,
 		diagnosis_method="Histologisk"
 	)
 
@@ -87,8 +92,9 @@ def get_course():
 			tnm_t="T4a",
 			tnm_n="N0",
 			tnm_m="M0",
-			tnm_type="Clinical",
-			tnm_version="AJCC 8",
+			tnm_type="C",
+			tnm_string="cT4a cN0 cM0",
+			tnm_edition="AJCC 8",
 			is_relapse=False,
 			staging_date=date(2024, 6, 10)
 		),
@@ -96,8 +102,9 @@ def get_course():
 			tnm_t="T4a",
 			tnm_n="N1",
 			tnm_m="M0",
-			tnm_type="Pathological",
-			tnm_version="AJCC 8",
+			tnm_string="pT4a pN1 pM0",
+			tnm_type="P",
+			tnm_edition="AJCC 8",
 			is_relapse=False,
 			staging_date=date(2024, 7, 10)
 		)
@@ -184,7 +191,6 @@ def get_course():
 				total_dosage_unit="l",
 				dosage_start_date=date(2023,4,10),
 				dosage_stop_date=date(2023,4,20),
-				comment="Fikk litt i overkant mye"
 			)
 		)
 	]
@@ -197,7 +203,6 @@ def get_course():
 			sample_date=date(2010,1,1),
 			sample_type="Vev",
 			sample_anatomical_location="Bukspyttkjertel",
-			sample_comment="Fra fryser"
 		),
 		BiologicalSample(
 			requisition_remissenr="5234536",
@@ -206,7 +211,6 @@ def get_course():
 			conclusion="Positive prøver",
 			sample_type="Celler (cytologi)",
 			sample_anatomical_location="Bukspyttkjertel",
-			sample_comment="Tatt nå",
 			sample_tumorcells_percentage=57.8
 		)
 	]
@@ -268,7 +272,6 @@ def get_course():
 			progression_type="Residiv",
 			progression_identification="Klinikk",
 			progression_grade="Fjernmetastase",
-			comment="Samme genetikk"
 		),
 		TumorEvent(
 			progression_date=date(2023,2,6),
@@ -291,7 +294,6 @@ def get_course():
 		ClinicalStudy(
 			study_name="STDHOD9 PET/CT-veiledet strålebehandling ved hode-halskreft",
 			study_contact_person="testlege 2",
-			comment="Ønsker å bli med i PET/CT-armen"
 		)
 	]
 

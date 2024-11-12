@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <course>
 	<metadata>
-		<xml_timestamp>2024-10-25T13:26:07.156826</xml_timestamp>
+		<xml_timestamp>2024-11-12T14:29:52.209032</xml_timestamp>
 		<xml_version_major>0</xml_version_major>
 		<xml_version_minor>3</xml_version_minor>
 	</metadata>
@@ -24,7 +24,7 @@
 		<pack_years>0</pack_years>
 		<month_since_stopping/>
 		<non_smoking_tobacco_status>Aldri brukt</non_smoking_tobacco_status>
-		<alcohol_abuse>Aldri drukket</alcohol_abuse>
+		<alcohol_abuse>TIdligere bruker</alcohol_abuse>
 	</stimulantia>
 	<function_status>
 		<ecog_grade>3</ecog_grade>
@@ -32,36 +32,41 @@
 	</function_status>
 	<comorbidity>
 		<item>
-			<comorbidity_icd10_code>S86.9</comorbidity_icd10_code>
-			<comorbidity_icd10_description>Skade på uspesifisert muskel eller sene i legg</comorbidity_icd10_description>
+			<comorbidity_name>S86.9 Skade på uspesifisert muskel eller sene i legg</comorbidity_name>
+			<comorbidity_code>S86.9</comorbidity_code>
+			<comorbidity_term>Skade på uspesifisert muskel eller sene i legg</comorbidity_term>
+			<comorbidity_terminology_version/>
 			<comorbidity_category/>
-			<comorbidity_comment/>
 			<comorbidity_date>2018-02-20</comorbidity_date>
 		</item>
 		<item>
-			<comorbidity_icd10_code/>
-			<comorbidity_icd10_description/>
+			<comorbidity_name/>
+			<comorbidity_code/>
+			<comorbidity_term/>
+			<comorbidity_terminology_version/>
 			<comorbidity_category>Sykdommer i muskel-skjelettsystemet og bindevev</comorbidity_category>
-			<comorbidity_comment/>
 			<comorbidity_date>2020-04-21</comorbidity_date>
 		</item>
 	</comorbidity>
 	<primary_diagnosis>
-		<diagnosis_icd10_code>C78.4</diagnosis_icd10_code>
-		<diagnosis_icd10_description>Metastase i tynntarm</diagnosis_icd10_description>
-		<diagnosis_laterality/>
+		<diagnosis_name>C78.4 Metastase i tynntarm</diagnosis_name>
+		<diagnosis_code>C78.4</diagnosis_code>
+		<diagnosis_term>Metastase i tynntarm</diagnosis_term>
+		<diagnosis_edition>ICD10</diagnosis_edition>
+		<multiple_primaries>true</multiple_primaries>
 		<diagnosis_localisation>Proksimalt</diagnosis_localisation>
 		<diagnosis_date>2023-10-02</diagnosis_date>
 		<diagnosis_method>Histologisk</diagnosis_method>
-		<diagnosis_comment/>
 	</primary_diagnosis>
 	<staging>
 		<item>
 			<tnm_t>T4a</tnm_t>
 			<tnm_n>N0</tnm_n>
 			<tnm_m>M0</tnm_m>
-			<tnm_version>AJCC 8</tnm_version>
-			<tnm_type>Clinical</tnm_type>
+			<tnm_string>cT4a cN0 cM0</tnm_string>
+			<tnm_edition>AJCC 8</tnm_edition>
+			<tnm_stage/>
+			<tnm_type>C</tnm_type>
 			<other_type/>
 			<other_grade/>
 			<is_relapse>false</is_relapse>
@@ -71,8 +76,10 @@
 			<tnm_t>T4a</tnm_t>
 			<tnm_n>N1</tnm_n>
 			<tnm_m>M0</tnm_m>
-			<tnm_version>AJCC 8</tnm_version>
-			<tnm_type>Pathological</tnm_type>
+			<tnm_string>pT4a pN1 pM0</tnm_string>
+			<tnm_edition>AJCC 8</tnm_edition>
+			<tnm_stage/>
+			<tnm_type>P</tnm_type>
 			<other_type/>
 			<other_grade/>
 			<is_relapse>false</is_relapse>
@@ -118,7 +125,6 @@
 				<previous_cancer_localisation/>
 				<previous_cancer_diagnosis_year>1977</previous_cancer_diagnosis_year>
 				<previous_cancer_rt_given>true</previous_cancer_rt_given>
-				<previous_cancer_comment/>
 			</item>
 			<item>
 				<previous_cancer_icd10_code>C77.50</previous_cancer_icd10_code>
@@ -127,7 +133,6 @@
 				<previous_cancer_localisation/>
 				<previous_cancer_diagnosis_year>1989</previous_cancer_diagnosis_year>
 				<previous_cancer_rt_given>false</previous_cancer_rt_given>
-				<previous_cancer_comment/>
 			</item>
 		</previous_cancer>
 	</previous_cancer>
@@ -139,7 +144,6 @@
 				<course_id>123456</course_id>
 				<procedure_nkpk_code>WEOA00</procedure_nkpk_code>
 				<procedure_nkpk_description>Ekstern stråleterapi, høyenergetisk (MV)</procedure_nkpk_description>
-				<comment/>
 			</treatment_radiotherapy>
 			<treatment_systemic/>
 			<treatment_surgery/>
@@ -154,7 +158,6 @@
 				<procedure_nkpk_description>Åpning av lapp etter rekonstruksjon av øyelokk</procedure_nkpk_description>
 				<surgery_target>Primærtumor</surgery_target>
 				<surgery_date>2023-07-24</surgery_date>
-				<comment/>
 			</treatment_surgery>
 		</item>
 		<item>
@@ -169,7 +172,6 @@
 				<total_dosage_unit>l</total_dosage_unit>
 				<dosage_start_date>2023-04-10</dosage_start_date>
 				<dosage_stop_date>2023-04-20</dosage_stop_date>
-				<comment>Fikk litt i overkant mye</comment>
 			</treatment_systemic>
 			<treatment_surgery/>
 		</item>
@@ -183,7 +185,6 @@
 			<sample_type>Vev</sample_type>
 			<sample_anatomical_location>Bukspyttkjertel</sample_anatomical_location>
 			<sample_tumorcells_percentage/>
-			<sample_comment>Fra fryser</sample_comment>
 		</item>
 		<item>
 			<requisition_remissenr>5234536</requisition_remissenr>
@@ -193,7 +194,6 @@
 			<sample_type>Celler (cytologi)</sample_type>
 			<sample_anatomical_location>Bukspyttkjertel</sample_anatomical_location>
 			<sample_tumorcells_percentage>57.8</sample_tumorcells_percentage>
-			<sample_comment>Tatt nå</sample_comment>
 		</item>
 	</biological_sample>
 	<biomarker>
@@ -203,7 +203,6 @@
 			<biomarker_unit/>
 			<biomarker_result/>
 			<biomarker_method/>
-			<comment/>
 		</item>
 		<item>
 			<biomarker_name>P16</biomarker_name>
@@ -211,7 +210,6 @@
 			<biomarker_unit/>
 			<biomarker_result>Positiv</biomarker_result>
 			<biomarker_method/>
-			<comment/>
 		</item>
 		<item>
 			<biomarker_name>ENE mikroskopisk</biomarker_name>
@@ -219,7 +217,6 @@
 			<biomarker_unit>ml/mg</biomarker_unit>
 			<biomarker_result>Positiv</biomarker_result>
 			<biomarker_method/>
-			<comment/>
 		</item>
 		<item>
 			<biomarker_name>Invasjonsdyp</biomarker_name>
@@ -227,7 +224,6 @@
 			<biomarker_unit>mm</biomarker_unit>
 			<biomarker_result/>
 			<biomarker_method>Målt invasjonsdyp</biomarker_method>
-			<comment/>
 		</item>
 	</biomarker>
 	<ctcae>
@@ -238,7 +234,6 @@
 			<ctcae_grade>3</ctcae_grade>
 			<ctcae_terminology_version>5</ctcae_terminology_version>
 			<meddra_terminology_version>27.1</meddra_terminology_version>
-			<comment/>
 		</item>
 		<item>
 			<ctcae_date>2024-12-01</ctcae_date>
@@ -247,7 +242,6 @@
 			<ctcae_grade>5</ctcae_grade>
 			<ctcae_terminology_version>5</ctcae_terminology_version>
 			<meddra_terminology_version>27.1</meddra_terminology_version>
-			<comment/>
 		</item>
 		<item>
 			<ctcae_date>2024-12-01</ctcae_date>
@@ -256,7 +250,6 @@
 			<ctcae_grade>2</ctcae_grade>
 			<ctcae_terminology_version>4</ctcae_terminology_version>
 			<meddra_terminology_version>27.1</meddra_terminology_version>
-			<comment/>
 		</item>
 	</ctcae>
 	<vital_status>
@@ -269,14 +262,12 @@
 			<progression_type>Residiv</progression_type>
 			<progression_identification>Klinikk</progression_identification>
 			<progression_grade>Fjernmetastase</progression_grade>
-			<comment>Samme genetikk</comment>
 		</item>
 		<item>
 			<progression_date>2023-02-06</progression_date>
 			<progression_type>Progresjon</progression_type>
 			<progression_identification>Histologi</progression_identification>
 			<progression_grade>Regional progresjon</progression_grade>
-			<comment/>
 		</item>
 	</tumor_event>
 	<consent>
@@ -287,12 +278,10 @@
 		<item>
 			<study_name>Dahanca30 (hode-halskreft)</study_name>
 			<study_contact_person>testlege 1</study_contact_person>
-			<comment/>
 		</item>
 		<item>
 			<study_name>STDHOD9 PET/CT-veiledet strålebehandling ved hode-halskreft</study_name>
 			<study_contact_person>testlege 2</study_contact_person>
-			<comment>Ønsker å bli med i PET/CT-armen</comment>
 		</item>
 	</clinical_studies>
 </course>

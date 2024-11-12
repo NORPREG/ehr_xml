@@ -8,7 +8,7 @@ Roadmap:
 - **0.3 Working XSD output**
 - **0.31 Working JSON scheme output**
 - **0.4 Further consolidation with archetypes**
-- 0.41 Correct [a..b] boundeds + (not) required fields in XSD
+- 0.41 Correct [a..b] boundeds + (not) required fields in XSD / JSON scheme
 - 0.5 Consolidation with existing Datamart Head & Neck evaluation + admission
 - 0.51 Can use data model workflow to import XML from Datamart (for another repo)
 - 0.6 Inclusion of other head & neck documents
